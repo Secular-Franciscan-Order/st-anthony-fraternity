@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
 import { TauMark } from '@/components/TauMark';
 import { siteContent } from '@/lib/site-content';
 import styles from './QuietShell.module.css';
@@ -21,11 +21,11 @@ export function QuietShell({ children }: { children: React.ReactNode }) {
       </a>
       <div className={styles.previewBar}>
         <span>Concept 01 · Quiet Welcome</span>
-        <Link href="/">Compare both designs</Link>
+        <a href="/">Compare both designs</a>
       </div>
       <header className={styles.header}>
         <div className={styles.brandRow}>
-          <Link
+          <a
             className={styles.brand}
             href="/quiet"
             aria-label={`${identity.name} home`}
@@ -37,17 +37,19 @@ export function QuietShell({ children }: { children: React.ReactNode }) {
                 {identity.order} · {identity.location}
               </small>
             </span>
-          </Link>
+          </a>
         </div>
         <nav className={styles.nav} aria-label="Quiet Welcome navigation">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href}>
+            <a key={link.href} href={link.href}>
               {link.label}
-            </Link>
+            </a>
           ))}
         </nav>
       </header>
-      <main id="main-content">{children}</main>
+      <main id="main-content" tabIndex={-1}>
+        {children}
+      </main>
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <div className={styles.footerBrand}>
@@ -80,7 +82,7 @@ export function QuietShell({ children }: { children: React.ReactNode }) {
         </div>
         <div className={styles.footerBottom}>
           <span>Website concept for fraternity review</span>
-          <Link href="/">Back to design comparison</Link>
+          <a href="/">Back to design comparison</a>
         </div>
       </footer>
     </div>

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   },
   description:
     'Two website concepts for Saint Anthony Fraternity of the Secular Franciscan Order in Tucson, Arizona.',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
   robots: {
     index: false,
     follow: false,

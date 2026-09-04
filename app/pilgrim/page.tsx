@@ -1,6 +1,6 @@
+/* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { PreviewContactForm } from '@/components/PreviewContactForm';
 import { TauMark } from '@/components/TauMark';
 import { siteContent } from '@/lib/site-content';
@@ -42,7 +42,7 @@ export default function PilgrimPage() {
 
       <div className={styles.previewBar}>
         <span>Concept 02 · Pilgrim&apos;s Path</span>
-        <Link href="/">Compare both designs</Link>
+        <a href="/">Compare both designs</a>
       </div>
 
       <header className={styles.header}>
@@ -68,7 +68,7 @@ export default function PilgrimPage() {
         </nav>
       </header>
 
-      <main id="pilgrim-main">
+      <main id="pilgrim-main" tabIndex={-1}>
         <section className={styles.hero} id="top">
           <div className={styles.heroCopy}>
             <p className={styles.latin}>Pax et bonum · Peace and all good</p>
@@ -292,7 +292,7 @@ export default function PilgrimPage() {
         <div className={styles.footerLinks}>
           <a href={links.region}>Saint Thomas More Region ↗</a>
           <a href={links.national}>Secular Franciscan Order—USA ↗</a>
-          <Link href="/">Compare designs</Link>
+          <a href="/">Compare designs</a>
         </div>
         <p className={styles.reviewLabel}>
           Website concept for fraternity review

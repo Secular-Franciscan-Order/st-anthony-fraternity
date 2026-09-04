@@ -1,5 +1,5 @@
+/* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './page.module.css';
 
 const reviewItems = [
@@ -42,9 +42,9 @@ export default function Home() {
               straightforward navigation, and a low-pressure invitation to
               visit.
             </p>
-            <Link className={styles.primaryLink} href="/quiet">
+            <a className={styles.primaryLink} href="/quiet">
               Open Quiet Welcome <span aria-hidden="true">→</span>
-            </Link>
+            </a>
           </div>
         </article>
 
@@ -73,9 +73,9 @@ export default function Home() {
               A guided single-page journey with sacred typography, warmer color,
               and the Saint Francis artwork as its visual center.
             </p>
-            <Link className={styles.primaryLink} href="/pilgrim">
+            <a className={styles.primaryLink} href="/pilgrim">
               Open Pilgrim&apos;s Path <span aria-hidden="true">→</span>
-            </Link>
+            </a>
           </div>
         </article>
       </section>

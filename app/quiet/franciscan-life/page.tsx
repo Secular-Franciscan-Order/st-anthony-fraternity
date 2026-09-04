@@ -1,5 +1,5 @@
+/* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { siteContent } from '@/lib/site-content';
 import styles from '../quiet-pages.module.css';
 
@@ -74,9 +74,9 @@ export default function FranciscanLifePage() {
           <p className={styles.eyebrow}>The first step is small</p>
           <h2>Visit once. Bring your questions.</h2>
         </div>
-        <Link className={styles.primaryButton} href="/quiet/come-and-see">
+        <a className={styles.primaryButton} href="/quiet/come-and-see">
           Come &amp; see <span aria-hidden="true">→</span>
-        </Link>
+        </a>
       </section>
     </div>
   );

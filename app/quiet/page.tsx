@@ -1,5 +1,5 @@
+/* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
 import Image from 'next/image';
-import Link from 'next/link';
 import { siteContent } from '@/lib/site-content';
 import styles from './quiet-pages.module.css';
 
@@ -17,12 +17,12 @@ export default function QuietHomePage() {
             <h1>A quieter way to live the Gospel—together.</h1>
             <p className={styles.lede}>{introduction}</p>
             <div className={styles.actions}>
-              <Link className={styles.primaryButton} href="/quiet/come-and-see">
+              <a className={styles.primaryButton} href="/quiet/come-and-see">
                 Plan a visit <span aria-hidden="true">→</span>
-              </Link>
-              <Link className={styles.textLink} href="/quiet/who-we-are">
+              </a>
+              <a className={styles.textLink} href="/quiet/who-we-are">
                 Meet the Secular Franciscans
-              </Link>
+              </a>
             </div>
           </div>
           <figure className={styles.portrait}>
@@ -50,7 +50,7 @@ export default function QuietHomePage() {
               {gathering.time} · {gathering.room} · {gathering.venue}
             </span>
           </p>
-          <Link href="/quiet/come-and-see">Visit details →</Link>
+          <a href="/quiet/come-and-see">Visit details →</a>
         </section>
 
         <section className={styles.section}>
@@ -96,9 +96,9 @@ export default function QuietHomePage() {
               and see whether this way of life speaks to you.
             </p>
           </div>
-          <Link className={styles.primaryButton} href="/quiet/come-and-see">
+          <a className={styles.primaryButton} href="/quiet/come-and-see">
             Start here <span aria-hidden="true">→</span>
-          </Link>
+          </a>
         </section>
       </div>
     </>
