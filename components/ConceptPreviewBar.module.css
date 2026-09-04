@@ -1,0 +1,140 @@
+.bar {
+  position: sticky;
+  z-index: 80;
+  top: 0;
+  border-bottom: 1px solid rgb(255 255 255 / 22%);
+  background: #163344;
+  box-shadow: 0 6px 20px rgb(13 29 39 / 24%);
+  color: #f8fbfc;
+  font-family: var(--font-sans-system);
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  max-width: 1240px;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+}
+
+.context,
+.selection,
+.backLink {
+  display: flex;
+  align-items: center;
+}
+
+.context {
+  min-width: 0;
+  gap: 0.9rem;
+}
+
+.badge {
+  flex: none;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgb(249 212 122 / 68%);
+  border-radius: 999px;
+  background: rgb(249 212 122 / 12%);
+  color: #f9d47a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.selection {
+  gap: 0.45rem;
+  color: #c8d7df;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.selection strong {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.backLink {
+  min-height: 44px;
+  flex: none;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 0.55rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(4 17 24 / 20%);
+  color: #163344;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.backLink:hover {
+  background: #f3f8fa;
+  box-shadow: 0 4px 12px rgb(4 17 24 / 28%);
+  transform: translateY(-1px);
+}
+
+.backLink:focus-visible {
+  outline: 3px solid #f9d47a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .inner {
+    min-height: 96px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .context {
+    justify-content: space-between;
+    gap: 0.65rem;
+  }
+
+  .selection {
+    justify-content: flex-end;
+    font-size: 0.78rem;
+    text-align: right;
+  }
+
+  .selection strong {
+    font-size: 0.88rem;
+  }
+
+  .backLink {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .selection {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .selection > span:first-of-type {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backLink {
+    transition: none;
+  }
+}

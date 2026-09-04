@@ -23,27 +23,8 @@
   transform: translateY(0);
 }
 
-.previewBar {
-  display: flex;
-  min-height: 38px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.45rem max(1.25rem, calc((100vw - 1180px) / 2));
-  background: #284e50;
-  color: #f7f4ee;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.previewBar a {
-  text-underline-offset: 3px;
-}
-
-.previewBar a:focus-visible {
-  outline-color: #fff;
+.site :global(#main-content) {
+  scroll-margin-top: 5rem;
 }
 
 .header {
@@ -188,10 +169,8 @@
 }
 
 @media (max-width: 760px) {
-  .previewBar {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.1rem;
+  .site :global(#main-content) {
+    scroll-margin-top: 7rem;
   }
 
   .header {

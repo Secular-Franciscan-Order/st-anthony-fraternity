@@ -19,8 +19,9 @@
   font-family: var(--font-serif-system);
 }
 
+.site :global(#pilgrim-main),
 .site :global(section[id]) {
-  scroll-margin-top: 1rem;
+  scroll-margin-top: 5rem;
 }
 
 .skipLink {
@@ -40,30 +41,6 @@
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
-}
-
-.previewBar {
-  display: flex;
-  min-height: 38px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.45rem max(1.25rem, calc((100vw - 1240px) / 2));
-  background: var(--espresso);
-  color: #fff6e5;
-  font-family: var(--font-sans-system);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.previewBar a {
-  text-underline-offset: 3px;
-}
-
-.previewBar a:focus-visible {
-  outline-color: #fff3dc;
 }
 
 .header {
@@ -931,10 +908,9 @@
 }
 
 @media (max-width: 720px) {
-  .previewBar {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.1rem;
+  .site :global(#pilgrim-main),
+  .site :global(section[id]) {
+    scroll-margin-top: 7rem;
   }
 
   .wayfinder {

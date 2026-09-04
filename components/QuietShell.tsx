@@ -1,4 +1,5 @@
 /* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
+import { ConceptPreviewBar } from '@/components/ConceptPreviewBar';
 import { TauMark } from '@/components/TauMark';
 import { siteContent } from '@/lib/site-content';
 import styles from './QuietShell.module.css';
@@ -19,10 +20,7 @@ export function QuietShell({ children }: { children: React.ReactNode }) {
       <a className={styles.skipLink} href="#main-content">
         Skip to content
       </a>
-      <div className={styles.previewBar}>
-        <span>Concept 01 · Quiet Welcome</span>
-        <a href="/">Compare both designs</a>
-      </div>
+      <ConceptPreviewBar conceptName="Quiet Welcome" conceptNumber={1} />
       <header className={styles.header}>
         <div className={styles.brandRow}>
           <a
@@ -82,7 +80,7 @@ export function QuietShell({ children }: { children: React.ReactNode }) {
         </div>
         <div className={styles.footerBottom}>
           <span>Website concept for fraternity review</span>
-          <a href="/">Back to design comparison</a>
+          <a href="/">Back to concept selector</a>
         </div>
       </footer>
     </div>

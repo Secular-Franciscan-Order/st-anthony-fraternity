@@ -1,6 +1,7 @@
 /* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ConceptPreviewBar } from '@/components/ConceptPreviewBar';
 import { PreviewContactForm } from '@/components/PreviewContactForm';
 import { TauMark } from '@/components/TauMark';
 import { siteContent } from '@/lib/site-content';
@@ -40,10 +41,7 @@ export default function PilgrimPage() {
         Skip to content
       </a>
 
-      <div className={styles.previewBar}>
-        <span>Concept 02 · Pilgrim&apos;s Path</span>
-        <a href="/">Compare both designs</a>
-      </div>
+      <ConceptPreviewBar conceptName="Pilgrim's Path" conceptNumber={2} />
 
       <header className={styles.header}>
         <a
@@ -292,7 +290,7 @@ export default function PilgrimPage() {
         <div className={styles.footerLinks}>
           <a href={links.region}>Saint Thomas More Region ↗</a>
           <a href={links.national}>Secular Franciscan Order—USA ↗</a>
-          <a href="/">Compare designs</a>
+          <a href="/">Back to concept selector</a>
         </div>
         <p className={styles.reviewLabel}>
           Website concept for fraternity review
