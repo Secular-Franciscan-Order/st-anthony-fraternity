@@ -1,0 +1,166 @@
+.form {
+  min-inline-size: 0;
+  margin: 0;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  border: 1px solid currentColor;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.form[data-tone='quiet'] {
+  border-color: rgb(42 75 78 / 25%);
+  background: #f8f4ee;
+  color: #2a2724;
+}
+
+.form[data-tone='pilgrim'] {
+  border-color: rgb(83 56 34 / 35%);
+  background: #f8efdc;
+  color: #302218;
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: #566f70;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+[data-tone='pilgrim'] .eyebrow {
+  color: #9b472b;
+  font-family: var(--font-serif-system);
+}
+
+.headingRow h3 {
+  margin: 0;
+  font-family: var(--font-serif-system);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.mockLabel {
+  flex: none;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid currentColor;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.help {
+  max-width: 42rem;
+  margin: 1rem 0 1.6rem;
+  color: #665d56;
+}
+
+[data-tone='pilgrim'] .help {
+  color: #6b5949;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.fullField {
+  grid-column: 1 / -1;
+}
+
+.control,
+.message {
+  border-radius: 0;
+  border-color: rgb(65 50 39 / 43%);
+  background: rgb(255 255 255 / 48%);
+}
+
+.control {
+  min-height: 46px;
+  padding-inline: 0.85rem;
+}
+
+.message {
+  min-height: 130px;
+  padding: 0.8rem;
+  resize: vertical;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.25rem;
+}
+
+.button {
+  min-height: 48px;
+  border-radius: 0;
+  padding-inline: 1.2rem;
+}
+
+[data-tone='quiet'] .button {
+  background: #315f61;
+  color: #fff;
+}
+
+[data-tone='pilgrim'] .button {
+  background: #a64729;
+  color: #fff8eb;
+  font-family: var(--font-serif-system);
+  font-size: 1rem;
+}
+
+.notice {
+  max-width: 31rem;
+  margin: 0;
+  color: #6a5f56;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 620px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .fullField {
+    grid-column: auto;
+  }
+
+  .actionRow,
+  .headingRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
