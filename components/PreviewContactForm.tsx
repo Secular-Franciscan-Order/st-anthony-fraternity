@@ -55,6 +55,17 @@ export function PreviewContactForm({
             placeholder="you@example.com"
           />
         </div>
+        <div className={styles.field}>
+          <label htmlFor={`${idPrefix}-phone`}>Phone number (optional)</label>
+          <Input
+            className={styles.control}
+            id={`${idPrefix}-phone`}
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="Your phone number"
+          />
+        </div>
         <div className={`${styles.field} ${styles.fullField}`}>
           <label htmlFor={`${idPrefix}-message`}>
             What would you like to know?

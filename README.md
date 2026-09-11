@@ -1,11 +1,8 @@
-# St. Anthony Fraternity website mockups
+# St. Anthony Fraternity website
 
-This repository contains two review-ready website directions for the St. Anthony Fraternity of the Secular Franciscan Order:
+This repository contains the selected single-page website for the St. Anthony Fraternity of the Secular Franciscan Order in Tucson, Arizona.
 
-- `/quiet` — a calm, editorial direction inspired by the St. Margaret of Cortona Fraternity site.
-- `/pilgrim` — a warmer, more expressive direction inspired by Style A from the design templates repository.
-
-The root page lets reviewers compare both directions. Contact controls are intentionally non-sending during the mockup phase and explain that behavior when used.
+The site is served at `/`. Previous `/pilgrim` and `/quiet` review links permanently redirect to the selected site so existing bookmarks continue to work. The contact form remains intentionally non-sending during the mockup phase and explains that behavior when used.
 
 ## Local development
 
@@ -24,12 +21,12 @@ pnpm build
 
 ## Deployment
 
-Cloudflare Workers Builds is the intended deployment path:
+Cloudflare Workers Builds is the deployment path:
 
 - GitHub repository: `Secular-Franciscan-Order/st-anthony-fraternity`
 - Production branch: `main`
 - Build command: `pnpm build`
 - Deploy command: `pnpm deploy`
-- Public review domain: `stanthonyfraternity.endian.dev`
+- Public staging domain: `stanthonyfraternity.endian.dev`
 
-The Worker name and custom domain are declared in `vite.config.ts`. The build generates `dist/server/wrangler.json`, which `pnpm deploy` publishes. Pushes to `main` should therefore rebuild and update the public review site after the repository is connected in Cloudflare Workers Builds.
+The Worker name and custom domain are declared in `vite.config.ts`. The build generates `dist/server/wrangler.json`, which `pnpm deploy` publishes. Pushes to `main` rebuild and update the staging site through Cloudflare Workers Builds.

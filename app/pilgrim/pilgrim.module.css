@@ -19,9 +19,9 @@
   font-family: var(--font-serif-system);
 }
 
-.site :global(#pilgrim-main),
+.site :global(#main-content),
 .site :global(section[id]) {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 1.5rem;
 }
 
 .skipLink {
@@ -850,7 +850,7 @@
   text-underline-offset: 4px;
 }
 
-.reviewLabel {
+.attribution {
   grid-column: 1 / -1;
   margin: 0;
   padding-top: 1.2rem;
@@ -860,6 +860,11 @@
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.attribution a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 @media (max-width: 900px) {
@@ -908,11 +913,6 @@
 }
 
 @media (max-width: 720px) {
-  .site :global(#pilgrim-main),
-  .site :global(section[id]) {
-    scroll-margin-top: 7rem;
-  }
-
   .wayfinder {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

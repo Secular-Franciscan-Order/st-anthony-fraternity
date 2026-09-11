@@ -3,11 +3,11 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Saint Anthony Fraternity Website Concepts',
+    default: 'Saint Anthony Fraternity',
     template: '%s | Saint Anthony Fraternity',
   },
   description:
-    'Two website concepts for Saint Anthony Fraternity of the Secular Franciscan Order in Tucson, Arizona.',
+    'Saint Anthony Fraternity of the Secular Franciscan Order in Tucson, Arizona.',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },

@@ -11,7 +11,7 @@
     "build": "vinext build",
     "deploy": "wrangler deploy --config dist/server/wrangler.json",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "oxlint app components/PreviewContactForm.tsx components/QuietShell.tsx components/TauMark.tsx components/ui/button.tsx components/ui/input.tsx components/ui/textarea.tsx lib",
+    "lint": "oxlint app components/PilgrimSite.tsx components/PreviewContactForm.tsx components/TauMark.tsx components/ui/button.tsx components/ui/input.tsx components/ui/textarea.tsx lib",
     "format": "oxfmt"
   },
   "dependencies": {
