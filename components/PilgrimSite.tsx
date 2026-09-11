@@ -278,13 +278,15 @@ export function PilgrimSite() {
             </span>
           </div>
         </div>
-        <div className={styles.footerLinks}>
-          <a href={links.region}>Saint Thomas More Region ↗</a>
-          <a href={links.national}>Secular Franciscan Order—USA ↗</a>
+        <div className={styles.footerRight}>
+          <div className={styles.footerLinks}>
+            <a href={links.region}>Saint Thomas More Region ↗</a>
+            <a href={links.national}>Secular Franciscan Order—USA ↗</a>
+          </div>
+          <p className={styles.attribution}>
+            <a href="https://ofs-demos.endian.dev/">Website by endian.dev ↗</a>
+          </p>
         </div>
-        <p className={styles.attribution}>
-          <a href="https://ofs-demos.endian.dev/">Website by endian.dev ↗</a>
-        </p>
       </footer>
     </div>
   );

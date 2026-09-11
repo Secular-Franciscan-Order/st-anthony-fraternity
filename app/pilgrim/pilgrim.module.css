@@ -835,6 +835,12 @@
   color: var(--terracotta);
 }
 
+.footerRight {
+  display: grid;
+  justify-items: end;
+  gap: 0.65rem;
+}
+
 .footerLinks {
   display: flex;
   flex-wrap: wrap;
@@ -851,20 +857,22 @@
 }
 
 .attribution {
-  grid-column: 1 / -1;
   margin: 0;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgb(58 42 28 / 22%);
   color: #75614f;
   font-family: var(--font-sans-system);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .attribution a {
+  color: inherit;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+.attribution a:hover {
+  color: var(--terracotta);
 }
 
 @media (max-width: 900px) {
@@ -949,6 +957,10 @@
 
   .footerLinks {
     justify-content: flex-start;
+  }
+
+  .footerRight {
+    justify-items: start;
   }
 }
 
