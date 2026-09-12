@@ -77,7 +77,7 @@ export async function handleContactRequest(
 ): Promise<Response> {
   if (request.method !== 'POST') return json('Method not allowed.', 405);
 
-  // The staging alias and version previews share code/bindings with production.
+  // Production aliases and preview versions reuse this handler.
   // Require both the destination URL and exact Origin; neither alone is enough.
   if (
     new URL(request.url).origin !== productionOrigin ||

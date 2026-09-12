@@ -1,5 +1,4 @@
-/* oxlint-disable next/no-html-link-for-pages -- Native anchors work around broken Vinext production navigation. */
-import Image from 'next/image';
+/* oxlint-disable next/no-html-link-for-pages, next/no-img-element -- Static export uses native anchors and a fixed, pre-sized image without runtime optimization. */
 import styles from '@/app/pilgrim/pilgrim.module.css';
 import { PreviewContactForm } from '@/components/PreviewContactForm';
 import { TauMark } from '@/components/TauMark';
@@ -79,12 +78,12 @@ export function PilgrimSite() {
 
           <figure className={styles.saintCard}>
             <div className={styles.saintFrame}>
-              <Image
+              <img
                 src="/images/saint-francis.jpg"
                 alt="Painted portrait of Saint Francis of Assisi with crossed arms"
                 width={850}
                 height={1100}
-                priority
+                fetchPriority="high"
               />
               <span className={styles.cornerMark} aria-hidden="true">
                 OFS

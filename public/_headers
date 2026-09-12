@@ -1,4 +1,4 @@
-# Asset responses bypass proxy.ts. Keep assets on staging/version hosts unindexed.
+# Static assets bypass the contact Worker. Keep staging/version hosts unindexed.
 /*
   X-Robots-Tag: noindex, nofollow
 
