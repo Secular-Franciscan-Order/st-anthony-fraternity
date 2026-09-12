@@ -1,0 +1,6 @@
+# Asset responses bypass proxy.ts. Keep assets on staging/version hosts unindexed.
+/*
+  X-Robots-Tag: noindex, nofollow
+
+https://stanthonytucson.org/*
+  ! X-Robots-Tag

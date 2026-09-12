@@ -11,7 +11,10 @@
     "build": "vinext build",
     "deploy": "wrangler deploy --config dist/server/wrangler.json",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "oxlint app components/PilgrimSite.tsx components/PreviewContactForm.tsx components/TauMark.tsx components/ui/button.tsx components/ui/input.tsx components/ui/textarea.tsx lib",
+    "lint": "oxlint app components/PilgrimSite.tsx components/PreviewContactForm.tsx components/TauMark.tsx components/ui/button.tsx components/ui/input.tsx components/ui/textarea.tsx lib proxy.ts tests",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "check:build": "node tests/check-build.mjs",
+    "types:worker": "wrangler types worker-configuration.d.ts --config dist/server/wrangler.json --include-runtime=false",
     "format": "oxfmt"
   },
   "dependencies": {

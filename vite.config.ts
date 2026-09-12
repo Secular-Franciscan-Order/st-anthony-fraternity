@@ -3,6 +3,12 @@ import tailwindcss from '@tailwindcss/postcss';
 import vinext from 'vinext';
 import { defineConfig } from 'vite';
 import hostingConfig from './.openai/hosting.json';
+import { contactRecipients, contactSender } from './lib/contact';
+import {
+  productionHostname,
+  stagingHostname,
+  wwwHostname,
+} from './lib/site-hosting';
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   '00000000-0000-4000-8000-000000000000';
@@ -18,10 +24,15 @@ const localBindingConfig = {
   compatibility_date: '2026-05-15',
   compatibility_flags: ['nodejs_compat'],
   preview_urls: true,
-  routes: [
+  routes: [productionHostname, wwwHostname, stagingHostname].map((pattern) => ({
+    pattern,
+    custom_domain: true,
+  })),
+  send_email: [
     {
-      pattern: 'stanthonyfraternity.endian.dev',
-      custom_domain: true,
+      name: 'CONTACT_EMAIL',
+      allowed_destination_addresses: [...contactRecipients],
+      allowed_sender_addresses: [contactSender],
     },
   ],
   assets: {
