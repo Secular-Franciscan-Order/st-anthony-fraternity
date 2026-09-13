@@ -71,7 +71,7 @@ async function expectFailure(req: Request, status: number, state = fixture()) {
   );
 }
 
-void test('sends one message to exactly both fixed recipients with visitor Reply-To and optional phone', async () => {
+void test('sends one message only to Benjamin with visitor Reply-To and optional phone', async () => {
   for (const phone of ['', '+1 (520) 555-0100']) {
     const state = fixture();
     const response = await handleContactRequest(
@@ -85,10 +85,7 @@ void test('sends one message to exactly both fixed recipients with visitor Reply
     assert.equal(response.status, 200);
     assert.equal(response.headers.get('Cache-Control'), 'no-store');
     assert.equal(state.sent.length, 1);
-    assert.deepEqual(state.sent[0].to, [
-      'benjamin.saenz@gmail.com',
-      'milly.rivera14@gmail.com',
-    ]);
+    assert.deepEqual(state.sent[0].to, ['benjamin.saenz@gmail.com']);
     assert.deepEqual(state.sent[0].from, {
       email: 'contact@stanthonytucson.org',
       name: 'St. Anthony Fraternity',

@@ -32,11 +32,13 @@ The React form preserves the selected design, full name and optional phone field
 
 Every accepted submission uses a server-owned message with:
 
-- To: **both** `benjamin.saenz@gmail.com` and `milly.rivera14@gmail.com`.
+- To at launch: **only** `benjamin.saenz@gmail.com`.
 - From: `St. Anthony Fraternity <contact@stanthonytucson.org>`.
 - Reply-To: the visitor's validated email address.
 
-The `CONTACT_EMAIL` binding restricts destinations to those two addresses and sender to that one address. Browser input cannot change routing. This sends no visitor auto-reply and creates no mailbox or forwarding rule. Success indicates provider acceptance; actual inbox receipt must be verified separately in both inboxes.
+The `CONTACT_EMAIL` binding restricts destinations to Benjamin's address and sender to the address above. Browser input cannot change routing. This sends no visitor auto-reply and creates no mailbox or forwarding rule. Success indicates provider acceptance; actual receipt in Benjamin's inbox must be verified separately.
+
+The owner approved this phased launch while Milly completes verification. Add `milly.rivera14@gmail.com` only after her destination is verified, using a reviewed follow-up change to `contactRecipients` and the exact-recipient assertions. The shared list supplies both the server send payload and generated production binding. Keep issue #1 open until that update and delivery to both inboxes are verified; Milly's pending verification does not block the Benjamin-only launch.
 
 Protections include an exact production HTTPS destination and Origin check, a 10,000-byte streamed request limit even without truthful Content-Length, bounded fields without silent truncation, a honeypot, server-side Turnstile verification of hostname **and** `contact` action, HTML escaping, and no-store responses. The application neither stores submissions nor logs their contents, addresses, tokens, phone numbers or provider errors. Name is limited to 200 characters, email 250, phone 50 and message 5,000; the total byte limit also applies.
 
@@ -66,8 +68,8 @@ Required production settings, after approval of the concrete rollout:
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Workers Builds public build variable | Dedicated St. Anthony widget public key, present before `pnpm build`; rebuild when changed                |
 | `TURNSTILE_SECRET_KEY`           | Worker runtime secret                | Matching widget secret, entered through authenticated tooling; never source/build variables/client bundle |
 | Turnstile hostname restrictions  | Dedicated widget                     | Approved apex/www and staging hostnames; server mail permission remains apex-only                         |
-| `CONTACT_EMAIL`                  | Generated Worker binding             | Exactly the two verified destinations and one allowed sender above                                        |
-| Email Routing/domain setup       | Cloudflare active zone               | Provider-issued root MX/SPF/DKIM records and sender eligibility ready; both destination owners verified   |
+| `CONTACT_EMAIL`                  | Generated Worker binding             | Exactly Benjamin's verified destination and the one allowed sender above                                   |
+| Email Routing/domain setup       | Cloudflare active zone               | Provider-issued root MX/SPF/DKIM records and sender eligibility ready; Benjamin's destination verified      |
 
 Missing runtime configuration returns a truthful unavailable response; the form never reports acceptance when the provider rejects a send. No credential belongs in source, issues, PRs or logs.
 
@@ -79,8 +81,8 @@ Code review and PR approval do not activate DNS, mail, secrets or production. Me
 2. Preserve registrar ownership at Porkbun. The authenticated September 12 inventory found two parking records: apex **ALIAS** to `pixie.porkbun.com` (TTL 600), and wildcard **CNAME** `*.stanthonytucson.org` to `pixie.porkbun.com` (TTL 600). There was no explicit `www` CNAME. Review the apex replacement and wildcard disposition explicitly; do not remove unrelated records. Recheck records before cutover. The same inventory showed DNSSEC off/no DS, URL forwarding unset and no configured mail/forwarding service; recheck these too.
 3. Activate Cloudflare DNS through the reviewed Porkbun nameserver change and wait for authoritative/zone activation. If DNSSEC has since changed, handle the old DS and TTL before the nameserver switch. Preserve existing mail service if any is discovered. Apply only the approved provider-issued email DNS records; these affect inbound mail for the entire domain and create no mailbox. Do not invent MX/SPF/DKIM values or create a catch-all.
 4. Include Free Cloudflare zone redirects in the approved rollout: send every www request and every HTTP apex request to the same path at `https://stanthonytucson.org`, with status 308 and query preserved. This covers assets and pages without Worker execution. Verify the complete rule expressions before applying them. `_redirects` handles only the six old review paths; Cloudflare does not support domain-level rules there.
-5. Verify both destination inboxes, prepare the dedicated Turnstile widget/build key/runtime secret, remove only the approved parking conflicts immediately before custom-domain attachment, and merge through the existing Builds path after explicit rollout approval.
-6. Check apex and www HTTPS/certificates, redirects, public assets, canonical/indexing and old links. Send only the approved synthetic test, confirm arrival in **both** inboxes (including spam check), Reply-To and optional phone. Do not declare launch complete from the API response alone.
+5. Verify Benjamin's destination, prepare the dedicated Turnstile widget/build key/runtime secret, remove only the approved parking conflicts immediately before custom-domain attachment, and merge through the existing Builds path after explicit rollout approval. Milly remains excluded until the verified-recipient follow-up.
+6. Check apex and www HTTPS/certificates, redirects, public assets, canonical/indexing and old links. Send only the approved synthetic test, confirm arrival in **Benjamin's** inbox (including spam check), Reply-To and optional phone. Do not declare launch complete from the API response alone. Keep issue #1 open for adding and testing Milly after verification.
 
 Prefer an approved Worker version/application rollback while retaining healthy DNS. A prior version may restore the noindex/mockup behavior. If the form fails, disable it with a truthful temporary notice and preserve direct contact details. DNS rollback uses the recorded nameservers/records and correct DS state; propagation is not immediate. Obtain approval for recovery actions unless already included in the rollout authorization. Never change other OFS deployments.
 

@@ -21,10 +21,7 @@ try {
       : [
           {
             name: 'CONTACT_EMAIL',
-            allowed_destination_addresses: [
-              'benjamin.saenz@gmail.com',
-              'milly.rivera14@gmail.com',
-            ],
+            allowed_destination_addresses: ['benjamin.saenz@gmail.com'],
             allowed_sender_addresses: ['contact@stanthonytucson.org'],
           },
         ],

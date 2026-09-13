@@ -6,16 +6,13 @@ const production = {
   send_email: [
     {
       name: 'CONTACT_EMAIL',
-      allowed_destination_addresses: [
-        'benjamin.saenz@gmail.com',
-        'milly.rivera14@gmail.com',
-      ],
+      allowed_destination_addresses: ['benjamin.saenz@gmail.com'],
       allowed_sender_addresses: ['contact@stanthonytucson.org'],
     },
   ],
 };
 
-void test('main CI and ordinary local builds retain exactly the approved email binding', () => {
+void test('main CI and ordinary local builds allow only Benjamin as the launch destination', () => {
   assert.deepEqual(
     contactBuildConfig({
       WORKERS_CI: '1',

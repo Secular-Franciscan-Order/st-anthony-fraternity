@@ -2,10 +2,7 @@
 import { contactLimits } from './contact-limits.ts';
 import { productionHostname, productionOrigin } from './site-hosting.ts';
 
-export const contactRecipients = [
-  'benjamin.saenz@gmail.com',
-  'milly.rivera14@gmail.com',
-];
+export const contactRecipients = ['benjamin.saenz@gmail.com'];
 export const contactSender = 'contact@stanthonytucson.org';
 const maxRequestSize = 10_000;
 const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
