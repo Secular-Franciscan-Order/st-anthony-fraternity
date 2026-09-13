@@ -1,0 +1,6 @@
+# Static assets bypass the contact Worker. Keep staging/version hosts unindexed.
+/*
+  X-Robots-Tag: noindex, nofollow
+
+https://stanthonytucson.org/*
+  ! X-Robots-Tag

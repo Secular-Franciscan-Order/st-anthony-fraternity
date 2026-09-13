@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import { productionOrigin } from '@/lib/site-hosting';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(productionOrigin),
+  alternates: { canonical: `${productionOrigin}/` },
   title: {
     default: 'Saint Anthony Fraternity',
     template: '%s | Saint Anthony Fraternity',
@@ -12,8 +15,8 @@ export const metadata: Metadata = {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
